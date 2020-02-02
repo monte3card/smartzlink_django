@@ -112,3 +112,13 @@ dmypy.json
 
 # Pyre type checker
 .pyre/
+.idea/inspectionProfiles/profiles_settings.xml
+.idea/misc.xml
+.idea/modules.xml
+.idea/smartzlink_django.iml
+.idea/workspace.xml
+blog/migrations/0001_initial.py
+blog/migrations/0002_post_views.py
+blog/migrations/__init__.py
+comments/migrations/0001_initial.py
+comments/migrations/__init__.py
