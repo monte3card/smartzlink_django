@@ -25,7 +25,7 @@ SECRET_KEY = 'ubdrn@47^8pw_(lnusg@7f6-f8e5y1n1^)p1+diorx=-$r3q9b'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['127.0.0.1','localhost','.smartzlink.com']
+ALLOWED_HOSTS = ['127.0.0.1','localhost','.smartzlink.com','47.92.37.254']
 
 
 # Application definition
