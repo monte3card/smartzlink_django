@@ -39,6 +39,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'blog',#注册blog应用
     'comments', # 注册新创建的 comments 应用
+    'gunicorn',
 ]
 
 MIDDLEWARE = [
