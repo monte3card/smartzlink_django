@@ -15,7 +15,7 @@
   <span class="views-count"><a href="#">{{post.views}}  阅读</a></span>
 </div>
              <div class="entry-content clearfix">
-  <p>{{ post.excerpt }}</p>
+  <p>{{ post.body | truncatechars:54 }}</p>
   <div class="read-more cl-effect-14">
     <a href="{{ post.get_absolute_url }}" class="more-link">继续阅读 <span class="meta-nav">→</span></a>
   </div>
@@ -31,6 +31,21 @@
                     <a href="#">下一页</a>
                 </div>
                 -->
+                <div class="pagination-simple">
+
+        {% if post_list.has_previous %}
+            <a href="?page={{ post_list.previous_page_number }}">previous</a>
+        {% endif %}
+
+        <span class="current">
+            Page {{ post_list.number }} of {{ post_list.paginator.num_pages }}.
+        </span>
+
+        {% if post_list.has_next %}
+            <a href="?page={{ post_list.next_page_number }}">next</a>
+        {% endif %}
+</div>
+    <!-- 简单分页效果
                 <div class="pagination">
                     <ul>
                         <li><a href="">1</a></li>
@@ -44,4 +59,5 @@
                         <li><a href="">11</a></li>
                     </ul>
                 </div>
+                   -->
 {% endblock main %}

@@ -16,7 +16,7 @@ class Category(models.Model):
     https://docs.djangoproject.com/en/1.10/ref/models/fields/#field-types
     """
     name = models.CharField(max_length=100)
-
+    #num_posts =  models.PositiveIntegerField(default=0)
 
 class Tag(models.Model):
     """
@@ -24,7 +24,7 @@ class Tag(models.Model):
     再次强调一定要继承 models.Model 类！
     """
     name = models.CharField(max_length=100)
-
+    #num_posts = models.PositiveIntegerField(default=0)
 
 class Post(models.Model):
     """

@@ -3,7 +3,7 @@
 <!DOCTYPE html>
 <html>
   <head>
-      <title>Black &amp; White</title>
+      <title>Smart &amp; Link</title>
 
       <!-- meta -->
       <meta charset="UTF-8">
@@ -29,7 +29,7 @@
         <div class="row">
             <div class="col-md-4 col-sm-5 col-xs-8">
                 <div class="logo">
-                    <h1><a href="{% url 'blog:index' %}"><b>Black</b> &amp; White</a></h1>
+                    <h1><a href="{% url 'blog:index' %}"><b>Smart</b> &amp; Link</a></h1>
                 </div>
             </div><!-- col-md-4 -->
             <div class="col-md-8 col-sm-7 col-xs-4">
@@ -98,14 +98,13 @@
     {% endfor %}
   </ul>
                 </div>
-
                 <div class="widget widget-category">
                     <h3 class="widget-title">分类</h3>
-                   {% get_categories as category_list %}
+                   {%  show_categories as category_list %}
   <ul>
     {% for category in category_list %}
     <li>
-      <a href="{% url 'blog:category' category.pk %}">{{ category.name }} <span class="post-count">(13)</span></a>
+      <a href="{% url 'blog:category' category.pk %}">{{ category.name }} <span class="post-count">({{category.num_posts}})</span></a>
     </li>
     {% empty %}
     暂无分类！
@@ -115,37 +114,15 @@
 
                 <div class="widget widget-tag-cloud">
                     <h3 class="widget-title">标签云</h3>
-                    <ul>
+                    {%  show_tags as tag_list %}
+                     <ul>
+                        {% for tag in tag_list %}
                         <li>
-                            <a href="#">Django</a>
+                            <a href="{% url 'blog:tag' tag.pk %}">{{ tag.name }} <span class="post-count">({{ tag.num_posts }})</span></a>
                         </li>
-                        <li>
-                            <a href="#">Python</a>
-                        </li>
-                        <li>
-                            <a href="#">Java</a>
-                        </li>
-                        <li>
-                            <a href="#">笔记</a>
-                        </li>
-                        <li>
-                            <a href="#">文档</a>
-                        </li>
-                        <li>
-                            <a href="#">AngularJS</a>
-                        </li>
-                        <li>
-                            <a href="#">CSS</a>
-                        </li>
-                        <li>
-                            <a href="#">JavaScript</a>
-                        </li>
-                        <li>
-                            <a href="#">Snippet</a>
-                        </li>
-                        <li>
-                            <a href="#">jQuery</a>
-                        </li>
+                        {% empty %}
+                            暂无标签！
+                            {% endfor %}
                     </ul>
                 </div>
                 <div class="rss">
@@ -159,9 +136,7 @@
     <div class="container">
         <div class="row">
             <div class="col-md-12">
-                <p class="copyright">&copy 2017 - 采集自<a href="http://www.cssmoban.com/"
-                                                        target="_blank" title="模板之家">模板之家</a>
-                    - 由<a href="http://zmrenwu.com/" title="网页模板" target="_blank">追梦人物的博客</a>修改
+                <p class="copyright">&copy 2020 SmartzLink 黑ICP备20000626号
                 </p>
             </div>
         </div>
