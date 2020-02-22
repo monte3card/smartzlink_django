@@ -17,6 +17,9 @@ class Category(models.Model):
     """
     name = models.CharField(max_length=100)
     #num_posts =  models.PositiveIntegerField(default=0)
+    def __str__(self):
+        return self.name
+
 
 class Tag(models.Model):
     """
@@ -25,6 +28,9 @@ class Tag(models.Model):
     """
     name = models.CharField(max_length=100)
     #num_posts = models.PositiveIntegerField(default=0)
+    def __str__(self):
+        return self.name
+
 
 class Post(models.Model):
     """
