@@ -60,7 +60,7 @@ def detail(request, pk):
         'markdown.extensions.codehilite',
         'markdown.extensions.toc',
     ])
-    post.body = md.convert(post.body).replace("\r\n", '  \n')
+    post.body = md.convert(post.body)#.replace("\r\n", '  \n')
     post.toc = md.toc
     # 记得在顶部导入 CommentForm
     form = CommentForm()

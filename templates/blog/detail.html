@@ -1,6 +1,7 @@
 {% extends 'base.html' %}
 {% block main %}
-   <article>
+       <article class="post post-{{ post.pk }}">
+  <header class="entry-header">
     <h1 class="entry-title">{{ post.title }}</h1>
     <div class="entry-meta">
       <span class="post-category"><a href="#">{{ post.category.name }}</a></span>
@@ -10,12 +11,14 @@
       <span class="comments-link"><a href="#">{{ post.comment_set.count }} 评论</a></span>
       <span class="views-count"><a href="#">{{post.views}} 阅读</a></span>
     </div>
-
+  </header>
+  <div class="entry-content markdown-body">
+    {{ post.body|safe }}
+  </div>
 </article>
 
-  <article class=markdown-body">
-    {{ post.body|safe }}
-  </article>
+
+
 
     <section class="comment-area" id="comment-area">
                     <hr>
