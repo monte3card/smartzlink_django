@@ -15,7 +15,8 @@
   <span class="views-count"><a href="#">{{post.views}}  阅读</a></span>
 </div>
              <div class="entry-content clearfix">
-  <p>{{ post.body | truncatechars:54 }}</p>
+  <p>{{ post.content | truncatechars:100}} ···</p>
+
   <div class="read-more cl-effect-14">
     <a href="{{ post.get_absolute_url }}" class="more-link">继续阅读 <span class="meta-nav">→</span></a>
   </div>

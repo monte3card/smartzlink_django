@@ -6,7 +6,7 @@ from .models import Post, Category, Tag
 from django.shortcuts import render, get_object_or_404
 from comments.forms import CommentForm
 from django.core.paginator import Paginator, EmptyPage, PageNotAnInteger
-
+from django.utils.html import strip_tags
 # Create your views here.
 from django.http import HttpResponse
 
@@ -40,7 +40,8 @@ def index_paginator(request):
     except EmptyPage:
         # If page is out of range (e.g. 9999), deliver last page of results.
         post_list = paginator.page(paginator.num_pages)
-
+    for post in post_list:
+        post.content = strip_tags(markdown.markdown(post.body))
     return render(request, 'blog/index.html', {'post_list': post_list})
 
 
@@ -59,7 +60,7 @@ def detail(request, pk):
         'markdown.extensions.codehilite',
         'markdown.extensions.toc',
     ])
-    post.body = md.convert(post.body)
+    post.body = md.convert(post.body).replace("\r\n", '  \n')
     post.toc = md.toc
     # 记得在顶部导入 CommentForm
     form = CommentForm()
