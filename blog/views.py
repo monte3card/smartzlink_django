@@ -14,6 +14,8 @@ from django.http import HttpResponse
 #    return HttpResponse("欢迎访问我的博客首页！")
 
 
+def jupyter(request):
+    return render(request, 'blog/jupyter.html', context={})
 
 def about(request):
     return render(request, 'blog/about.html', context={})

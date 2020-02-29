@@ -11,5 +11,6 @@ urlpatterns = [
     url(r'^tag/(?P<pk>[0-9]+)/$', views.tag, name='tag'),
     url(r'^about$', views.about, name='about'),
     url(r'^contact$', views.contact, name='contact'),
+    url(r'^jupyter$', views.jupyter, name='jupyter'),
     #url(r'^category/(?P<pk>[0-9]+)/$', views.category, name='category'),
 ]
